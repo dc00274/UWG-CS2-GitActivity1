@@ -12,11 +12,12 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Label text="Label" />
+      <Label text="Bill Name" />
       <TextField fx:id="name" />
-      <Label text="Label" />
+      <Label text="Bill Amount" />
       <TextField fx:id="amount" />
       <Button mnemonicParsing="false" onAction="#addItem" text="Button" />
+      <Label text ="Bill Total" />
       <TextArea fx:id="output" editable="false" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </VBox>

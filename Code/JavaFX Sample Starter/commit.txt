@@ -1,0 +1,21 @@
+commit db6c26fbc275658bd6b201f2b2de9f52724280e6
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Sep 10 19:58:15 2025 -0400
+
+    Generated a JavaFx project
+    
+    added the production code for the Bill system
+
+commit d1971d446d2ad131d08e58337aac29095ced3659
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Sep 2 11:01:24 2025 -0400
+
+    Setup package structure
+    
+    added tests package with sub packages mirroring production code structure.
+
+commit 6ec19970cf45728f57dd6d89b567ac28a0efceef
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Aug 19 10:06:49 2025 -0400
+
+    Initial commit
