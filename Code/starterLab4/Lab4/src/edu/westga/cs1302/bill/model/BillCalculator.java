@@ -27,4 +27,25 @@ public static double calculateSubtotal(BillItem[] items) {
         }
         return subtotal;
     }
+ 
+/**
+ * Calculates the tip on the given items.
+ * 
+ * @param items the array of BillItem objects
+ * @return the subtotal times tip rate
+ */
+public static double calculateTip(BillItem[] items) {
+    return calculateSubtotal(items) * Bill.TIP_RATE;
+}
+
+/**
+ * Calculates the tax on given items.
+ * 
+ *  @param items the array of BillItem objects
+ * @return subtotal times tax rate
+ */
+public static double calculateTax(BillItem[] items) {
+    return calculateSubtotal(items) * Bill.TAX_RATE;
+ }
+
 }
