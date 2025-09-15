@@ -48,4 +48,14 @@ public static double calculateTax(BillItem[] items) {
     return calculateSubtotal(items) * Bill.TAX_RATE;
  }
 
+/**
+ * Calculates the total (subtotal + tax + tip).
+ * 
+ * @param items  the array of BillItem objects
+ * @return the the total of the subtotal,tax and tip
+ */
+public static double calculateTotal(BillItem[] items) {
+    return calculateSubtotal(items) + calculateTip(items) + calculateTax(items);
+}
+
 }
