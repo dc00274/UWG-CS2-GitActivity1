@@ -22,6 +22,7 @@ public class BillView {
 	 * 
 	 * @return a String containing the list of bill items and total for the bill
 	 */
+	@SuppressWarnings("unused")
 	public static String getText(Bill bill) {
 		String text = "ITEMS" + System.lineSeparator();
 		ArrayList<BillItem> itemList = bill.getItems();
@@ -35,7 +36,8 @@ public class BillView {
 		double subtotal = BillCalculator.calculateSubtotal(items);
         double tip = BillCalculator.calculateTax(items);
         double tax = BillCalculator.calculateTip(items);
-        double total = BillCalculator.calculateTotal(items);
+        @SuppressWarnings("unused")
+		double total = BillCalculator.calculateTotal(items);
 		text += System.lineSeparator();
 		text += "SUBTOTAL - $" + subTotal + System.lineSeparator();
 		text += "TAX - $" + BillView.roundToNearestHundredth(tax) + System.lineSeparator();
