@@ -38,4 +38,10 @@ public class MainWindow {
     public void initialize() {
     	
     }
+    private void onSumbit() {
+        String name = this.textField.getText();
+        String description = this.textArea.getText();
+        String priority = this.comboBox.getValue();
+    }
+    
 }
