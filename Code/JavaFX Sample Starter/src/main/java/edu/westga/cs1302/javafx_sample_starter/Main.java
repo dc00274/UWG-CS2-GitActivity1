@@ -1,4 +1,4 @@
-package edu.westga.cs1302.lab3;
+package edu.westga.cs1302.javafx_sample_starter;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ import java.io.IOException;
  * @version Fall 2025
  */
 public class Main extends Application {
-  private static final String WINDOW_TITLE = "Bill";
+  private static final String WINDOW_TITLE = "JavaFX Starter Sample";
   private static final String GUI_RESOURCE = "views/MainWindow.fxml";
 
   /**
@@ -27,7 +27,7 @@ public class Main extends Application {
    * @throws IOException
    */
   @Override
-  public void start(@SuppressWarnings("exports")   Stage primaryStage) throws IOException {
+  public void start(Stage primaryStage) throws IOException {
     Parent parent = FXMLLoader.load(getClass().getResource(Main.GUI_RESOURCE));
     Scene scene = new Scene(parent);
     primaryStage.setTitle(WINDOW_TITLE);

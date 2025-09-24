@@ -1,0 +1,69 @@
+commit 10311fa8157a4b258028ec5d696b5cff85d56e90
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 15 01:28:20 2025 -0400
+
+    Updated Bill Calculator
+    
+    add new test cases for the Bill Calculator Class
+
+commit cf745f64dffc81db28d9efd1e9bc0588ea1427ec
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 15 00:57:36 2025 -0400
+
+    Update BillView
+    
+    updated the getText method  to make use of the new methods
+
+commit 44fd6f5abe6228ae6969d15eeea1fcea3a0fdccf
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 15 00:18:20 2025 -0400
+
+    Added one method
+    
+    added calculateTotal method by add subtotal plus the Tip and tax
+
+commit b15cf65778aa34683bca7ed72e99ae148f38dac1
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Sun Sep 14 23:47:42 2025 -0400
+
+    Added two new methods
+    
+    calculate Tax and Tip and method using both tip rate and tax rate
+
+commit 7f453f629059fe4d7c5026dc71b6099b97aae2bf
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Sun Sep 14 23:23:54 2025 -0400
+
+    Added a BillCalculator Class
+    
+    also added the calculateSubtotal method
+
+commit 0f8d9c76682e0e9f9f0cd2a3099c68f324660aad
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Sep 11 13:01:03 2025 -0400
+
+    Update the BillItem class
+    
+    added final to the name and amount variables
+
+commit db6c26fbc275658bd6b201f2b2de9f52724280e6
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Sep 10 19:58:15 2025 -0400
+
+    Generated a JavaFx project
+    
+    added the production code for the Bill system
+
+commit d1971d446d2ad131d08e58337aac29095ced3659
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Sep 2 11:01:24 2025 -0400
+
+    Setup package structure
+    
+    added tests package with sub packages mirroring production code structure.
+
+commit 6ec19970cf45728f57dd6d89b567ac28a0efceef
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Aug 19 10:06:49 2025 -0400
+
+    Initial commit
