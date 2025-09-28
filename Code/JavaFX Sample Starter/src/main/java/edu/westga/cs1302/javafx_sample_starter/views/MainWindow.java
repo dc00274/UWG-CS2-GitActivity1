@@ -57,7 +57,14 @@ public class MainWindow {
 	 * Perform any needed initialization of UI components and underlying objects.
 	 */
 	public void initialize() {
-
+		
+		this.descriptionPriority.setEditable(false);
+        this.descriptionText.setEditable(false);
+        
+		 this.listView.getSelectionModel().selectedItemProperty().addListener((obs, oldTask, newTask) -> {
+			 this.descriptionPriority.setText(newTask.getDescription());
+             this.descriptionText.setText(newTask.getPriority());
+		 });
 	}
 
 }
