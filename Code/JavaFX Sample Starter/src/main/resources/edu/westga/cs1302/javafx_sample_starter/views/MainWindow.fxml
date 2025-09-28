@@ -18,5 +18,7 @@
       <Button fx:id="button" mnemonicParsing="false" onAction="#onSumbit" text="Button" />
       <ComboBox fx:id="comboBox" prefWidth="150.0" />
       <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="descriptionText" />
+      <TextArea fx:id="descriptionPriority" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </VBox>
