@@ -19,7 +19,7 @@
       <ComboBox fx:id="comboBox" prefWidth="150.0" />
       <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
       <TextField fx:id="descriptionText" editable="false" />
-      <Button mnemonicParsing="false" onAction="#updateDescription" text="Button" />
+      <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateDescription" text="Button" />
       <TextArea fx:id="descriptionPriority" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </VBox>

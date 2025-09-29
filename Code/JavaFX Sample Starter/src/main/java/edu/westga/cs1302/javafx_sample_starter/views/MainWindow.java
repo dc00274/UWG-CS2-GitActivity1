@@ -31,7 +31,10 @@ public class MainWindow {
 	
 	@FXML
 	private TextField descriptionText;
-
+	
+	@FXML
+    private Button updateButton;
+	
 	@FXML
 	private Button button;
 
@@ -52,6 +55,14 @@ public class MainWindow {
 		}
 
 	}
+	
+	@FXML
+	void updateDescription(ActionEvent event) {
+       DataTask selectedTask = listView.getSelectionModel().getSelectedItem();
+        if(selectedTask != null) {
+        	selectedTask.setDescription(descriptionPriority.getText());
+        }
+    }
 
 	/**
 	 * Perform any needed initialization of UI components and underlying objects.
