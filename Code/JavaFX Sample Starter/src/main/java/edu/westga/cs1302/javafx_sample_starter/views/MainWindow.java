@@ -1,6 +1,7 @@
 package edu.westga.cs1302.javafx_sample_starter.views;
 
 import edu.westga.cs1302.javafx_sample_starter.model.DataTask;
+import edu.westga.cs1302.javafx_sample_starter.model.TaskUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -67,8 +68,16 @@ public class MainWindow {
 	}
 	@FXML
     void taskNumber(ActionEvent event) {
-
-    }
+		StringBuilder counts = new StringBuilder("Task counts:\n");
+	    
+	    for (String currPriority : comboBox.getItems()) {
+	        int count = TaskUtility.priorityCount(currPriority, listView.getItems());
+	        String line = currPriority + " / " + count + " tasks\n";
+	    }
+	    
+	    numberTasks.setText(counts.toString());
+	}
+  
 	
 	@FXML
     void removeTask(ActionEvent event) {
