@@ -16,6 +16,7 @@
       <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" />
       <TextField fx:id="textField" />
       <Button fx:id="button" mnemonicParsing="false" onAction="#onSubmit" text="Button" />
+      <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeTask" text="Button" />
       <ComboBox fx:id="comboBox" prefWidth="150.0" />
       <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
       <TextField fx:id="descriptionText" editable="false" />

@@ -37,6 +37,9 @@ public class MainWindow {
 	
 	@FXML
 	private Button button;
+	
+	 @FXML
+	 private Button removeButton;
 
 	@FXML
 	private TextField textField;
@@ -55,6 +58,11 @@ public class MainWindow {
 		}
 
 	}
+	
+	@FXML
+    void removeTask(ActionEvent event) {
+
+    }
 	
 	@FXML
 	void updateDescription(ActionEvent event) {
