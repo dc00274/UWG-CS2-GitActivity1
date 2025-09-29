@@ -24,13 +24,13 @@ public class MainWindow {
 	private TextArea textArea;
 	
 	@FXML
-    private TextArea descriptionPriority;
-
-    @FXML
-    private TextField descriptionText;
-
-	@FXML
 	private ListView<DataTask> listView;
+    
+	@FXML
+	private TextArea descriptionPriority;
+	
+	@FXML
+	private TextField descriptionText;
 
 	@FXML
 	private Button button;
@@ -39,7 +39,7 @@ public class MainWindow {
 	private TextField textField;
 
 	@FXML
-	void onSumbit(ActionEvent event) {
+	void onSubmit(ActionEvent event) {
 		String name = this.textField.getText();
 		String description = this.textArea.getText();
 		String priority = this.comboBox.getValue();
@@ -57,14 +57,16 @@ public class MainWindow {
 	 * Perform any needed initialization of UI components and underlying objects.
 	 */
 	public void initialize() {
+		comboBox.getItems().addAll("Red", "Blue", "Green");
 		
-		this.descriptionPriority.setEditable(false);
-        this.descriptionText.setEditable(false);
-        
-		 this.listView.getSelectionModel().selectedItemProperty().addListener((obs, oldTask, newTask) -> {
-			 this.descriptionPriority.setText(newTask.getDescription());
-             this.descriptionText.setText(newTask.getPriority());
-		 });
+		listView.getSelectionModel().selectedItemProperty().addListener((obs, oldTask, newTask) -> {
+            if (newTask != null) {
+                descriptionText.setText(newTask.getPriority());      
+                descriptionPriority.setText(newTask.getDescription()); 
+            } else {
+                descriptionText.clear();
+                descriptionPriority.clear();
+            }
+        });
 	}
-
 }
