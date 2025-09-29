@@ -51,5 +51,9 @@ public class DataTask {
 	public String getPriority() {
 		return this.priority;
 	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 }
