@@ -61,7 +61,10 @@ public class MainWindow {
 	
 	@FXML
     void removeTask(ActionEvent event) {
-
+	DataTask selectedTask = listView.getSelectionModel().getSelectedItem();
+	   if (selectedTask != null) {
+	       listView.getItems().remove(selectedTask);
+	   }
     }
 	
 	@FXML
