@@ -4,6 +4,8 @@ import edu.westga.cs1302.javafx_sample_starter.model.DataTask;
 import edu.westga.cs1302.javafx_sample_starter.model.TaskUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -62,7 +64,9 @@ public class MainWindow {
 			 this.listView.getItems().add(task);
 
 		} catch (IllegalArgumentException e) {
-			System.err.println("Error: " + e.getMessage());
+			Alert alert =new Alert(AlertType.ERROR);
+			alert.setContentText("Error"+e.getMessage());
+			alert.showAndWait();
 		}
 
 	}
@@ -72,7 +76,8 @@ public class MainWindow {
 	    
 	    for (String currPriority : comboBox.getItems()) {
 	        int count = TaskUtility.priorityCount(currPriority, listView.getItems());
-	        String line = currPriority + " / " + count + " tasks\n";
+	        @SuppressWarnings("unused")
+			String line1 = currPriority + " / " + count + " tasks\n";
 	    }
 	    
 	    numberTasks.setText(counts.toString());
@@ -84,6 +89,8 @@ public class MainWindow {
 	DataTask selectedTask = listView.getSelectionModel().getSelectedItem();
 	   if (selectedTask != null) {
 	       listView.getItems().remove(selectedTask);
+	       descriptionText.clear();
+	       descriptionPriority.clear();
 	   }
     }
 	
