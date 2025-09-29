@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -24,6 +25,9 @@ public class MainWindow {
 	private TextArea textArea;
 	
 	@FXML
+    private Label numberTasks;
+	
+	@FXML
 	private ListView<DataTask> listView;
     
 	@FXML
@@ -31,6 +35,9 @@ public class MainWindow {
 	
 	@FXML
 	private TextField descriptionText;
+	
+	@FXML
+    private Button displayNumber;
 	
 	@FXML
     private Button updateButton;
@@ -58,6 +65,10 @@ public class MainWindow {
 		}
 
 	}
+	@FXML
+    void taskNumber(ActionEvent event) {
+
+    }
 	
 	@FXML
     void removeTask(ActionEvent event) {
