@@ -9,23 +9,25 @@ import java.util.Scanner;
 
 import edu.westga.cs1302.lab5.model.Student;
 
-/** Supports saving and loading student data,
+/**
+ * Supports saving and loading student data,
  * 
  * @author CS 1302
  * @version Fall 2025
  */
 public class StudentDataPersistenceManager {
-	
+
 	public static final String FILE_LOCATION = "data.txt";
-	
-	/** Save the students!
+
+	/**
+	 * Save the students!
 	 * 
 	 * @precondition students != null
 	 * @postcondition none
 	 * 
-	 * @param students the set of students to 
+	 * @param students the set of students to
 	 * @throws IllegalArgumentException if precondition is violated
-	 * @throws IOException Unable to write to FILE_LOCATION
+	 * @throws IOException              Unable to write to FILE_LOCATION
 	 */
 	public static void saveStudentData(Student[] students) throws IOException, IllegalArgumentException {
 		if (students == null) {
@@ -34,43 +36,48 @@ public class StudentDataPersistenceManager {
 		try (FileWriter writer = new FileWriter(StudentDataPersistenceManager.FILE_LOCATION)) {
 			for (Student currStudent : students) {
 				if (currStudent != null) {
-					writer.write(currStudent.getName() + "," + currStudent.getGrade()  + System.lineSeparator());
-					
+					writer.write(currStudent.getName() + "," + currStudent.getGrade() + System.lineSeparator());
+
 				}
 			}
 		}
 	}
 
-	/** Load the students!
+	/**
+	 * Load the students!
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
 	 * @return the set of students loaded
 	 * @throws FileNotFoundException no file exists at FILE_LOCATION
-	 * @throws IOException unable to read file due to formatting issue 
+	 * @throws IOException           unable to read file due to formatting issue
 	 */
 	public static Student[] loadStudentData() throws FileNotFoundException, IOException {
 		ArrayList<Student> students = new ArrayList<Student>();
 		File inputFile = new File(StudentDataPersistenceManager.FILE_LOCATION);
-		
+
 		try (Scanner reader = new Scanner(inputFile)) {
 			while (reader.hasNextLine()) {
-				String name = reader.nextLine();
-				if (!reader.hasNextLine()) {
-					throw new IOException("missing grade for " + name);
+				String line = reader.nextLine();
+				String[] parts = line.split(",");
+				if (parts.length != 2) {
+					throw new IOException("Invalid format:" + line);
+
 				}
-				int grade = Integer.parseInt(reader.nextLine());
+
+				String name = parts[0].trim();
+				int grade;
+				try {
+					grade = Integer.parseInt(parts[1].trim());
+				} catch (NumberFormatException ee) {
+					throw new IOException("Grade is not a valid number for student:" + name);
+				}
+
 				students.add(new Student(name, grade));
 			}
-		} catch (NumberFormatException error) {
-			throw new IOException("grade value was not formatted as an integer (" + error.getMessage() + ")");
-		} catch (IllegalArgumentException error) {
-			throw new IOException(error.getMessage());
 		}
-		
 		return students.toArray(new Student[0]);
-	}
-	
-	
+}
+
 }
