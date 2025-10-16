@@ -4,6 +4,13 @@ import java.util.Comparator;
 
 import edu.westga.cs1302.task_tracker.model.Task;
 
+/**
+ * The Class Descending.
+ * @author Dillan
+ * 
+ * Compares Tasks based on priority higher priority coming first
+ * @version 1
+ */
 public class Descending implements Comparator<Task> {
 
 	@Override
