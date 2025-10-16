@@ -17,5 +17,14 @@ public class Descending implements Comparator<Task> {
 	public int compare(Task t1, Task t2) {
 		return t2.getPriority().compareTo(t1.getPriority());
 	}
-
+	
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
+	@Override
+	public String toString() {
+		return "Ascending Low to High";
+	}
 }
