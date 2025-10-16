@@ -86,7 +86,8 @@ public class MainWindow {
     /** Perform any needed initialization of UI components and underlying objects.
      * 
      */
-    public void initialize() {
+    @SuppressWarnings("unchecked")
+	public void initialize() {
     	this.priority.getItems().addAll(TaskPriority.HIGH, TaskPriority.MEDIUM, TaskPriority.LOW);
     	this.priority.setValue(this.priority.getItems().get(0));
     	this.order.getItems().addAll(new Ascending(), new Descending());
