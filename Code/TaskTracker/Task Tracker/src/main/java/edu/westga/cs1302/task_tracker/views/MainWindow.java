@@ -78,7 +78,7 @@ public class MainWindow {
     
     @FXML
     void sortTasks(ActionEvent event) {
-      if(this.order.getValue() != null) {
+      if (this.order.getValue() != null) {
     	  this.tasks.getItems().sort(this.order.getValue());
       }
     }
@@ -89,5 +89,6 @@ public class MainWindow {
     public void initialize() {
     	this.priority.getItems().addAll(TaskPriority.HIGH, TaskPriority.MEDIUM, TaskPriority.LOW);
     	this.priority.setValue(this.priority.getItems().get(0));
+    	this.order.getItems().addAll(new Ascending(), new Descending());
     }
 }
