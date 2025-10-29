@@ -2,7 +2,8 @@ package edu.westga.cs1302.task_tracker.model;
 
 import java.util.Comparator;
 
-public class AscendingName implements Comparator<Task>{
+public class DescendingName implements Comparator<Task>{
+	
 	
 	public int compare(Task o1, Task o2) {
 		if (o1 == null) {
@@ -11,12 +12,11 @@ public class AscendingName implements Comparator<Task>{
 		if (o2 == null) {
 			throw new IllegalArgumentException("o2 must not be null");
 		}
-		return o1.getName().compareTo(o2.getName());
+		return o2.getName().compareTo(o1.getName());
 	}
 	
 	@Override
 	public String toString() {
-		return "Ascending Name A-Z";
+		return "Ascending Name Z-A";
 	}
 }
-

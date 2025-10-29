@@ -150,8 +150,10 @@ public class MainWindow {
     public void initialize() {
     	this.priority.getItems().addAll(TaskPriority.HIGH, TaskPriority.MEDIUM, TaskPriority.LOW);
     	this.priority.setValue(this.priority.getItems().get(0));
-    	this.order.getItems().add(new Ascending());
-    	this.order.getItems().add(new Descending());
+    	this.order.getItems().add(new PriorityAscending());
+    	this.order.getItems().add(new PriorityDescending());
+    	this.order.getItems().add(new AscendingName());
+    	this.order.getItems().add(new DescendingName());
     	this.priority.setValue(this.priority.getItems().get(0));
     }
 }
