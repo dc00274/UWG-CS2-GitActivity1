@@ -1,5 +1,8 @@
 package edu.westga.cs1302.task_tracker.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /** Stores basic information for a Task
  * 
  * @author CS 1302
@@ -118,9 +121,13 @@ public class Task {
 		if (subTask == null) {
 			throw new IllegalArgumentException("description must not be null");
 		}
-		ContainerTask container = new ContainerTask(this.getDescription(), this.getName());
+		ContainerTask container = new ContainerTask(this.getDescription(), this.getName(), this.priority);
 		container.addTask(subTask);
 		return container;
+	}
+	
+	public List<Task> getSubTask(){
+		return new ArrayList<>();
 	}
 
 	/** Returns the name of the task to represent the task as a String
