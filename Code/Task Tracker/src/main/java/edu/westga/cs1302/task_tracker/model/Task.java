@@ -118,9 +118,9 @@ public class Task {
 		if (subTask == null) {
 			throw new IllegalArgumentException("description must not be null");
 		}
-		ContainerTask container1 = new ContainerTask(this.getDescription(), this.getName());
-		container1.addTask(subTask);
-		return container1;
+		ContainerTask container = new ContainerTask(this.getDescription(), this.getName());
+		container.addTask(subTask);
+		return container;
 	}
 
 	/** Returns the name of the task to represent the task as a String
