@@ -9,7 +9,7 @@ import edu.westga.cs1302.task_tracker.model.Task.TaskPriority;
  * @author CS 1302
  * @version Fall 2025
  */
-public class PriorityDescending implements Comparator<Task> {
+public class DescendingPriority implements Comparator<Task> {
 
 	/** Returns a value indicating ordering of the two tasks based 
 	 * on Descending priority.
