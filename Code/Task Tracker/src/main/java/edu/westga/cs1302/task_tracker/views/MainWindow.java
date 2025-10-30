@@ -152,6 +152,16 @@ public class MainWindow {
         this.tasks.getItems().set(index, updatedTask);
         this.subTask.getItems().setAll(updatedTask.getSubTask());
     }
+    
+    @FXML
+    void selectSubTask(ActionEvent event) {
+    	Task selectedSub = this.tasks.getSelectionModel().getSelectedItem();
+    	 if(selectedSub != null) {
+    		 this.selectedPriority.setText(selectedSub.getPriority().toString());
+    		 this.selectedDescription.setText(selectedSub.getDescription());
+    	  }
+    	 }
+    
 
     /** Perform any needed initialization of UI components and underlying objects.
      * 
