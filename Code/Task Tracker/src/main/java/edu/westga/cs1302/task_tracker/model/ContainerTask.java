@@ -3,10 +3,23 @@ package edu.westga.cs1302.task_tracker.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContainerTask extends Task{
+/** Stores basic information for a Task
+ * 
+ * @author CS 1302
+ * @version Fall 2025
+ */
+
+public class ContainerTask extends Task {
   
  private List<Task> subTask;
  
+ /**
+  * Instantiates a new container task.
+  *
+  * @param name the name
+  * @param description the description
+  * @param priority the priority
+  */
  public ContainerTask(String name, String description, TaskPriority priority) {
 	 super(name, description, priority);
 	 this.subTask = new ArrayList<>();
@@ -22,7 +35,7 @@ public class ContainerTask extends Task{
   }
   
   @Override
-  public List<Task> getSubTask(){
+  public List<Task> getSubTask() {
 	  return this.subTask;
   }
   

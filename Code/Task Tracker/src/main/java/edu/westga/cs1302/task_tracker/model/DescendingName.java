@@ -2,9 +2,25 @@ package edu.westga.cs1302.task_tracker.model;
 
 import java.util.Comparator;
 
-public class DescendingName implements Comparator<Task>{
+/** Compare two Tasks to identify the correct Descending ordering of the tasks by name.
+ * 
+ * @author CS 1302
+ * @version Fall 2025
+ */
+public class DescendingName implements Comparator<Task> {
 	
-	
+	/** Returns a value indicating ordering of the two tasks based 
+	 * on Descending name.
+	 * 
+	 * @precondition o1 != null && o2 != null
+	 * @postcondition none
+	 * 
+	 * @param o1 the first task to compare
+	 * @param o2 the second task to compare
+	 * 
+	 * @return o2 compared to o1
+	 * 
+	 */
 	public int compare(Task o1, Task o2) {
 		if (o1 == null) {
 			throw new IllegalArgumentException("o1 must not be null");

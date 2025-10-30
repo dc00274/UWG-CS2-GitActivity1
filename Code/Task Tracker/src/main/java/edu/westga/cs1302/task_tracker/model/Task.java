@@ -117,6 +117,13 @@ public class Task {
 		this.description = description;
 	}
 	
+	/**
+	 * Adds the task.
+	 *
+	 * @param subTask the sub task
+	 * @return the container task
+	 */
+	
 	public ContainerTask addTask(Task subTask) {
 		if (subTask == null) {
 			throw new IllegalArgumentException("description must not be null");
@@ -126,7 +133,13 @@ public class Task {
 		return container;
 	}
 	
-	public List<Task> getSubTask(){
+	/**
+	 * Gets the sub task.
+	 *
+	 * @return the sub task
+	 */
+	
+	public List<Task> getSubTask() {
 		return new ArrayList<>();
 	}
 
