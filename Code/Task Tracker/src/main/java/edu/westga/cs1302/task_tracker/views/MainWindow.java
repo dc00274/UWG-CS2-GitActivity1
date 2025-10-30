@@ -157,8 +157,11 @@ public class MainWindow {
     void selectSubTask(ActionEvent event) {
     	Task selectedSub = this.tasks.getSelectionModel().getSelectedItem();
     	 if(selectedSub != null) {
-    		 this.selectedPriority.setText(selectedSub.getPriority().toString());
-    		 this.selectedDescription.setText(selectedSub.getDescription());
+    		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    		 alert.setTitle("SubTask Alert");
+    		 alert.setHeaderText(selectedSub.getName());
+    		 alert.setContentText("Priority:" + selectedSub.getDescription() + "  " + "Description:" + selectedSub.getPriority());
+    		 alert.showAndWait();
     	  }
     	 }
     
