@@ -116,7 +116,7 @@ public class MainWindow {
     }
 
     /** Display the count of tasks for each priority.
-     * f tqt fy F77t TgstuF gdyygey yygg
+     * 
      * @precondition none
      * @postcondition count of tasks for each priority are displayed in the appropriate labels.
      * 
@@ -143,18 +143,42 @@ public class MainWindow {
     	}
     }
     
+    /**
+     * Sub task.
+     *
+     *@precondition none
+     *
+     * @param event the event
+     */
     @FXML
     void subTask(ActionEvent event) {
+    	try {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
     	Task newSub = new Task(this.name.getText(), this.description.getText(), this.priority.getValue());
-    	Task updatedTask = selectedTask.addTask(newSub);
+    	Task newTask = selectedTask.addTask(newSub);
     	int index = this.tasks.getItems().indexOf(selectedTask);
-        this.tasks.getItems().set(index, updatedTask);
-        this.subTask.getItems().setAll(updatedTask.getSubTask());
+        this.tasks.getItems().set(index, newTask);
+        this.subTask.getItems().setAll(newTask.getSubTask());
+        if (this.order.getValue() != null) {
+    		this.tasks.getItems().sort(this.order.getValue());
+           }
+    	} catch (IllegalArgumentException error) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Adding Subtask");
+            alert.setContentText(error.getMessage());
+            alert.showAndWait();
+    	}
     }
     
+    /**
+     * Select sub task.
+     *
+     *@precondition none
+     *
+     * @param event the event
+     */
     @FXML
-    void selectSubTask(ActionEvent event) {
+    void selectSubTask(MouseEvent event) {
     	Task selectedSub = this.tasks.getSelectionModel().getSelectedItem();
     	 if (selectedSub != null) {
     		 Alert alert = new Alert(Alert.AlertType.INFORMATION);

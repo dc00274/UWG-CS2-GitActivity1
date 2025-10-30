@@ -2,11 +2,7 @@ package edu.westga.cs1302.task_tracker.model;
 
 import java.util.Comparator;
 
-/** Compare two Tasks to identify the correct Descending ordering of the tasks by name.
- * 
- * @author CS 1302
- * @version Fall 2025
- */
+
 public class DescendingName implements Comparator<Task> {
 	
 	/** Returns a value indicating ordering of the two tasks based 

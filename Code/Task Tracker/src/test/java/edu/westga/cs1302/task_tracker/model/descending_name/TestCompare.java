@@ -11,7 +11,8 @@ class TestCompare {
 
 	@Test
     void testO1IsNull() {
-        Task o1 = new Task("Alan", "desc", Task.TaskPriority.HIGH);
+        @SuppressWarnings("unused")
+		Task o1 = new Task("Alan", "desc", Task.TaskPriority.HIGH);
         Task o2 = new Task("Ben", "desc", Task.TaskPriority.HIGH);
         DescendingName descending = new DescendingName();
 
@@ -21,7 +22,8 @@ class TestCompare {
     @Test
     void testO2IsNull() {
         Task o1 = new Task("Alan", "desc", Task.TaskPriority.HIGH);
-        Task o2 = new Task("Ben", "desc", Task.TaskPriority.HIGH);
+        @SuppressWarnings("unused")
+		Task o2 = new Task("Ben", "desc", Task.TaskPriority.HIGH);
         DescendingName descending = new DescendingName();
 
         assertThrows(IllegalArgumentException.class, ()->{descending.compare(o1, null);});

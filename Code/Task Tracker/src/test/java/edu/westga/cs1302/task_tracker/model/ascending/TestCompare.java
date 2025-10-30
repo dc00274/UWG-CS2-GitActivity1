@@ -12,6 +12,7 @@ class TestCompare {
 
 	@Test
 	void testO1IsNull() {
+		@SuppressWarnings("unused")
 		Task o1 = new Task("name", "desc", TaskPriority.HIGH);
 		Task o2 = new Task("name", "desc", TaskPriority.HIGH);
 		AscendingPriority ascending = new AscendingPriority();
@@ -19,6 +20,7 @@ class TestCompare {
 		assertThrows(IllegalArgumentException.class, ()->{ascending.compare(null, o2);});
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	void testO2IsNull() {
 		Task o1 = new Task("name", "desc", TaskPriority.HIGH);
