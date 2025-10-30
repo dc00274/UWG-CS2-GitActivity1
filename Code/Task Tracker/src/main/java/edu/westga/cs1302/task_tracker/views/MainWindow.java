@@ -156,7 +156,7 @@ public class MainWindow {
     @FXML
     void selectSubTask(ActionEvent event) {
     	Task selectedSub = this.tasks.getSelectionModel().getSelectedItem();
-    	 if(selectedSub != null) {
+    	 if (selectedSub != null) {
     		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
     		 alert.setTitle("SubTask Alert");
     		 alert.setHeaderText(selectedSub.getName());
