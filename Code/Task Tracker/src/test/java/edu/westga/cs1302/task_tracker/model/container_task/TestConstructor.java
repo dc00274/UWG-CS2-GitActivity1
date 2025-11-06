@@ -12,7 +12,7 @@ class TestConstructor {
 	
 	@Test
     void testAddNullTaskThrowsException() {
-		ContainerTask container = new ContainerTask("Main Task", "Main description", TaskPriority.HIGH);
+		ContainerTask container = new ContainerTask("Task", "Main description", TaskPriority.HIGH);
         Task sub = new Task("Sub", "Sub description", TaskPriority.MEDIUM);
         Task sub1 = new Task("Sub1", "Sub1 description", TaskPriority.LOW);
         assertThrows(IllegalArgumentException.class, () -> container.addTask(null));
@@ -20,7 +20,7 @@ class TestConstructor {
 
 	@Test
     void testAddTaskAddsSubtask() {
-		ContainerTask container = new ContainerTask("Main Task", "Main description", TaskPriority.HIGH);
+		ContainerTask container = new ContainerTask("Task", "Main description", TaskPriority.HIGH);
         Task sub = new Task("Sub", "Sub description", TaskPriority.MEDIUM);
         Task sub1 = new Task("Sub1", "Sub1 description", TaskPriority.LOW);
         container.addTask(sub);
@@ -30,7 +30,7 @@ class TestConstructor {
 	
 	@Test
     void testAddMultipleSubtasks() {
-		ContainerTask container = new ContainerTask("Main Task", "Main description", TaskPriority.HIGH);
+		ContainerTask container = new ContainerTask("Task", "Main description", TaskPriority.HIGH);
         Task sub = new Task("Sub", "Sub description", TaskPriority.MEDIUM);
         Task sub1 = new Task("Sub1", "Sub1 description", TaskPriority.LOW);
         container.addTask(sub);

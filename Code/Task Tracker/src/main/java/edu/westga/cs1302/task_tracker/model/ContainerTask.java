@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ContainerTask extends Task {
   
+ /** The sub task. */
  private List<Task> subTask;
  
  /**
@@ -20,6 +21,12 @@ public class ContainerTask extends Task {
 	 this.subTask = new ArrayList<>();
  }
  
+  /**
+   * Adds the task.
+   *
+   * @param subTask the sub task
+   * @return the container task
+   */
   @Override
   public ContainerTask addTask(Task subTask) {
 	  if (subTask == null) {
@@ -29,11 +36,21 @@ public class ContainerTask extends Task {
 	  return this;
   }
   
+  /**
+   * Gets the sub task.
+   *
+   * @return the sub task
+   */
   @Override
   public List<Task> getSubTask() {
 	  return this.subTask;
   }
   
+  /**
+   * To string.
+   *
+   * @return the string
+   */
   @Override
   public String toString() {
 	  return super.getName() + "(+)";

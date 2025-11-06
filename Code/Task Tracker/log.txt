@@ -1,0 +1,401 @@
+commit 4c6aaa1f64e609e015b3960b6029a1702b570371
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 30 05:28:12 2025 -0400
+
+     Final touches
+    
+    added final touches to the code before sumbit it.
+
+commit 8d2e5d8af6931890d8f3356413a8aa28e4403e3b
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 30 04:23:34 2025 -0400
+
+    More Test cases
+    
+    added more test case for written methods.
+
+commit c5e01864bce2f7b1e7569530e06978db53a7db74
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 30 03:51:39 2025 -0400
+
+     Test cases Ascending and Descending
+    
+    added new test cases for Ascending name and Descending name.
+
+commit 84f65085ba968c43a4236fa2120a7cb476c2a98a
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 30 03:36:08 2025 -0400
+
+    Checkstyle warning
+    
+    fixed all my checkstyle errors.
+
+commit 78044cd57a1344af118e27d3360e5cdde2e3d300
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 23:17:35 2025 -0400
+
+     SelectedSubTask method
+    
+    updated the selectedSubTask method to show alert window.
+
+commit 00086cf499e782f1be90ce6e263d7c509d030d07
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 22:46:52 2025 -0400
+
+    Update Mainwindow class and fxml
+    
+    implement selectTask to MainWindow and fxml.
+
+commit f334d4a250aa02cafa34f3d25c7fbc2dccb7dd89
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 21:16:38 2025 -0400
+
+    Subtask update to MainWindow
+    
+    implemented a method in Mainwindow that replaces a Task with the Task
+    returned when adding the subtask.
+
+commit db55ef73be112a22f8561a6aa625419fd836d720
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 20:49:10 2025 -0400
+
+    Update SceneBuilder
+    
+    added a new button and listview call subTask to Scenebuilder.
+
+commit de77c9a86423c62cd2e1e6e223f150b633073c91
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 00:47:33 2025 -0400
+
+    Task class update 2
+    
+    added a new method to Task class called getSubTasks.
+
+commit 0ff2c8c53afedb9aaf19eea6a5613e3858f78e0d
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 00:25:52 2025 -0400
+
+    Container class added
+    
+    added a new ContainerTask class that inherits from Task.
+
+commit a4de2046ac16dcf991f82c3c1f09bb6066fdd037
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 00:09:18 2025 -0400
+
+    Updated Task Class 1
+    
+    added a new addTask method to the Task Class.
+
+commit 1f881ebba4eab893b67e774385044fcdbf1e3424
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 29 00:07:33 2025 -0400
+
+    Upadate MainWindow
+    
+    updated MainWindow to provide new Comparators as option when ordering.
+
+commit 0a86e472fd7f007d1fac459fecdaf8d489cf61ea
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Oct 28 22:50:41 2025 -0400
+
+    Implemented new Comparators
+    
+    implemented new Comparators to sort task by name.
+
+commit f1f29b796a80cbf39d6899c5a7e5081ee0e84f6e
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Oct 28 22:38:38 2025 -0400
+
+     Comparator update
+    
+    changed the Comparators name to indicate that they sort by Priority.
+
+commit 0958f4404a9464fd87df542a5e009464e4be1e5b
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Oct 28 20:19:21 2025 -0400
+
+     Main Window update
+    
+    updated MainWindow class to resort task when a task is updated or added.
+
+commit cd49718f933270d14fcae41baf326218a2948f83
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 16 04:47:06 2025 -0400
+
+    Comparators update
+    
+    add some finishing touches to Comparators.
+
+commit 8c79c690b4e3240bfdd3a47ccf0526cb63076ec9
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 16 04:29:31 2025 -0400
+
+    Test case update
+    
+    added test cases for Ascending and Descending Comparators.
+
+commit 7cd4b18a5003fc5bc6188617b950fb6e148bf54e
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 16 00:43:32 2025 -0400
+
+    Checkstyle warning fix
+    
+    made changes to fix the checkstyle warnings.
+
+commit b8364dc2d0fde654992c15f2b5f2af4d6af802b9
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 16 00:37:37 2025 -0400
+
+    Implement functionality
+    
+    added the two comparators to the appropiate combobox.
+
+commit 101fefd0c479706550724f27b32eac9fe9819557
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 15 23:40:50 2025 -0400
+
+    New comparator class
+    
+    added a new Comparator class called Descending which compares taks based on
+    priority but the opposite direction from Ascending.
+
+commit b6b463053c93786d9fb7971f5d55ec0122cfb7aa
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Oct 15 23:30:31 2025 -0400
+
+    New Comperator class
+    
+    added a new Comparator class called Ascending that compares task based on
+    priority.
+
+commit d420f6c1bebdb25cd013e253f9060af3c752f391
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 2 06:22:13 2025 -0400
+
+    Updated TestCases
+    
+    added new testcases for LoadStudentData and SaveStudentData
+
+commit 1de1d1d22bea66a2a03813f996659fb266ce4943
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 2 01:35:23 2025 -0400
+
+    Updated loadStudentData method
+    
+    add changes to the method to load the data for the current set of students.
+
+commit 6d49ef33161bacc0b474080f9df4ce0122a49472
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Oct 2 01:10:23 2025 -0400
+
+    Update saveStduentDate method
+    
+    made some changes to the saveStudentData method to use CVS.
+
+commit db3693813f4ffe7cf0a51945b16b7b8197f1bcbb
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 08:54:17 2025 -0400
+
+    Last updates
+    
+    added a few minor touches to code.
+
+commit 9aeffdce7ab6263a24d979711a790ce6f34ab7b5
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 04:44:32 2025 -0400
+
+    TaskUtility test cases
+    
+    added test cases for the TaskUtility class.
+
+commit 281e019cb90e7ef82f96e9a5f7e3fc024902eed1
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 04:37:45 2025 -0400
+
+    Data Task test cases
+    
+    added Test cases for DataTask class
+
+commit b83094a9fd05183238e8e5e2abd2d75a30e8200d
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 04:02:03 2025 -0400
+
+    Updated MainWindow for displaying count
+    
+    added the method for the taskNumber button so to determine the number
+    of taks for priority in combobox
+
+commit 5682b3528693ab1ff857d9b19945169b8de68a1d
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 03:33:01 2025 -0400
+
+    Add a Utility Class
+    
+    add a utility class and a method that accepts priority of taks and returns
+    number of tasks.
+
+commit 8469fd61287d0f7e3518c48ab27d29fdf6ce7b91
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 02:23:53 2025 -0400
+
+    MainWindow Update-Number of task
+    
+    added a label to SceneBuilder and updated to MainWindow class
+    added a button to SceneBuilder and also updated to MainWindow class
+
+commit 2415e93fb2bd89ee3c5a984815f41d14340391a7
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 01:52:30 2025 -0400
+
+     Remove task updated
+    
+    added a method to the removeTask button
+
+commit 98ead53c8ada6ec12c2fd631f5f47a776f86f11b
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 01:36:01 2025 -0400
+
+    Remove button added
+    
+    added a remove button to scenebuilder to remove task
+    also added the method header to MainWindow
+
+commit fc0c8e7890fda625079800beb81228d9d3bb75dc
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 00:36:21 2025 -0400
+
+    updated Main Window Class
+    
+    add code int he updateDescription method, so it updates the description
+    of a task in the listview to match description of display
+
+commit f25e3f230a68ec91c938ad4a9110800d6394fd3a
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 00:16:18 2025 -0400
+
+    Update Task Class
+    
+    added a method to allow changing the description for a task
+
+commit 07266cf555ea702f65b22793f50e990227c5652a
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 29 00:08:13 2025 -0400
+
+    Scne Builder and Main Window update
+    
+    added  a new button to update description in scenebuilder
+    and update the new button method to MainWindow class
+
+commit 89a94762d7414fd59f7a75b2154a3a5a7a1ef2c6
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Sun Sep 28 23:03:34 2025 -0400
+
+    Update Code
+    
+    fixed errors with my code
+
+commit fc3d139553551b04d1b433fe276ee059aa6aaead
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Sun Sep 28 00:49:21 2025 -0400
+
+    Main Window Class  updated
+    
+    add things to the initialize method so that the priority and text can be
+    read only
+
+commit 855a0a259f0b13297808935d7ba7a02a47bc7258
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Sun Sep 28 00:08:20 2025 -0400
+
+    Updated Scene Builder and Main Window
+    
+    added a new text area and field to scnebuilder,
+    then updated onSumbit method in MAin Window class.
+
+commit c8110b7bd33764aff5cf788aa679db34003e9625
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Sep 24 17:03:57 2025 -0400
+
+    Added new Class and Change name
+    
+    Change the name pf Java fx to Project 1 and add a new Data TAsk Class.
+
+commit e79566d447ca79a0e8e5881962c2ee58945c5654
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Sep 24 01:25:59 2025 -0400
+
+     Update Scenebuilder and MAinWindow class
+    
+    added textField,TextArea,Button,ListView and ComboBox to the scenebuilder
+    then imported it to the Mainwindow Class.
+
+commit 10311fa8157a4b258028ec5d696b5cff85d56e90
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 15 01:28:20 2025 -0400
+
+    Updated Bill Calculator
+    
+    add new test cases for the Bill Calculator Class
+
+commit cf745f64dffc81db28d9efd1e9bc0588ea1427ec
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 15 00:57:36 2025 -0400
+
+    Update BillView
+    
+    updated the getText method  to make use of the new methods
+
+commit 44fd6f5abe6228ae6969d15eeea1fcea3a0fdccf
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Mon Sep 15 00:18:20 2025 -0400
+
+    Added one method
+    
+    added calculateTotal method by add subtotal plus the Tip and tax
+
+commit b15cf65778aa34683bca7ed72e99ae148f38dac1
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Sun Sep 14 23:47:42 2025 -0400
+
+    Added two new methods
+    
+    calculate Tax and Tip and method using both tip rate and tax rate
+
+commit 7f453f629059fe4d7c5026dc71b6099b97aae2bf
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Sun Sep 14 23:23:54 2025 -0400
+
+    Added a BillCalculator Class
+    
+    also added the calculateSubtotal method
+
+commit 0f8d9c76682e0e9f9f0cd2a3099c68f324660aad
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Thu Sep 11 13:01:03 2025 -0400
+
+    Update the BillItem class
+    
+    added final to the name and amount variables
+
+commit db6c26fbc275658bd6b201f2b2de9f52724280e6
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Wed Sep 10 19:58:15 2025 -0400
+
+    Generated a JavaFx project
+    
+    added the production code for the Bill system
+
+commit d1971d446d2ad131d08e58337aac29095ced3659
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Sep 2 11:01:24 2025 -0400
+
+    Setup package structure
+    
+    added tests package with sub packages mirroring production code structure.
+
+commit 6ec19970cf45728f57dd6d89b567ac28a0efceef
+Author: dc00274 <dkcclayton@gmail.com>
+Date:   Tue Aug 19 10:06:49 2025 -0400
+
+    Initial commit

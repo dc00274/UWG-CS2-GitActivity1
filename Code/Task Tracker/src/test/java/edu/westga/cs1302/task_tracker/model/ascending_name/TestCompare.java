@@ -15,8 +15,9 @@ class TestCompare {
 		Task o1 = new Task("Alan", "desc", Task.TaskPriority.HIGH);
         Task o2 = new Task("Ben", "desc", Task.TaskPriority.HIGH);
         AscendingName ascending = new AscendingName();
-
-        assertThrows(IllegalArgumentException.class, ()->{ascending.compare(null, o2);});
+        assertThrows(IllegalArgumentException.class, ()->{
+        	ascending.compare(null, o2);
+        	});
     }
 
     @Test
@@ -25,8 +26,9 @@ class TestCompare {
         @SuppressWarnings("unused")
 		Task o2 = new Task("Ben", "desc", Task.TaskPriority.HIGH);
         AscendingName ascending = new AscendingName();
-
-        assertThrows(IllegalArgumentException.class, ()->{ascending.compare(o1, null);});
+        assertThrows(IllegalArgumentException.class, ()-> {
+        	ascending.compare(o1, null);
+        	});
     }
 
     @Test
@@ -34,7 +36,6 @@ class TestCompare {
         Task o1 = new Task("Alan", "desc", Task.TaskPriority.HIGH);
         Task o2 = new Task("Ben", "desc", Task.TaskPriority.HIGH);
         AscendingName ascending = new AscendingName();
-
         int result = ascending.compare(o1, o2);
         assertTrue(result < 0);
     }
@@ -44,7 +45,6 @@ class TestCompare {
         Task o1 = new Task("Charlie", "desc", Task.TaskPriority.HIGH);
         Task o2 = new Task("Ben", "desc", Task.TaskPriority.HIGH);
         AscendingName ascending = new AscendingName();
-
         int result = ascending.compare(o1, o2);
         assertTrue(result > 0);
     }
@@ -54,7 +54,6 @@ class TestCompare {
         Task o1 = new Task("Dillan", "desc", Task.TaskPriority.HIGH);
         Task o2 = new Task("Dillan", "desc", Task.TaskPriority.LOW);
         AscendingName ascending = new AscendingName();
-
         int result = ascending.compare(o1, o2);
         assertEquals(0, result);
 	}
