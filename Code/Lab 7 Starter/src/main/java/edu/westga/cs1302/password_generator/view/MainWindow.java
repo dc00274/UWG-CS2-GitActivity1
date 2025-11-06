@@ -3,6 +3,8 @@ package edu.westga.cs1302.password_generator.view;
 import java.util.Random;
 
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
+import edu.westga.cs1302.password_generator.viewmodel.PasswordViewModel;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -65,7 +67,12 @@ public class MainWindow {
         assert this.minimumLength != null : "fx:id=\"minimumLength\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert this.output != null : "fx:id=\"output\" was not injected: check your FXML file 'MainWindow.fxml'.";
          
-        this.viewmodel =new PasswordViewModel;
+        this.viewModel = new PasswordViewModel();
+        this.mustIncludeDigits.selectedProperty().bindBidirectional(viewModel.mustIncludeDigitsProperty());
+        this.mustIncludeLowerCaseLetters.selectedProperty().bindBidirectional(viewModel.mustIncludeLowerCaseProperty());
+        this.mustIncludeUpperCaseLetters.selectedProperty().bindBidirectional(viewModel.mustIncludeUpperCaseProperty());
+        Bindings.bindBidirectional(minimumLength.textProperty(),viewModel.minimumLengthProperty(),new NumberStringConverter());
+        output.textProperty().bind(viewModel.generatedPasswordProperty());
         this.minimumLength.setText("1");
         Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
