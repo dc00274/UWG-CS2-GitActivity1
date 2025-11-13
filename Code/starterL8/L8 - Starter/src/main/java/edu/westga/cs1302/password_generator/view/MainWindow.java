@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -19,7 +20,7 @@ public class MainWindow {
     @FXML private CheckBox mustIncludeLowerCaseLetters;
     @FXML private CheckBox mustIncludeUpperCaseLetters;
     @FXML private TextField minimumLength;
-    @FXML private TextArea output;
+    @FXML private ListView output;
     @FXML private Label errorTextLabel;
     @FXML private Button generatePasswordButton;
     
@@ -41,7 +42,7 @@ public class MainWindow {
     	this.vm.getRequireUppercase().bind(this.mustIncludeUpperCaseLetters.selectedProperty());
     	this.minimumLength.setText(this.vm.getMinimumLength().getValue());
     	this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
-    	
+    	this.output.itemsProperty().bind(this.vm.getPasswordHistory());
     	this.output.textProperty().bind(this.vm.getPassword());
     	this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
     	

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -18,7 +19,7 @@ public class ViewModel {
 	private BooleanProperty requireDigits;
 	private BooleanProperty requireLowercase;
 	private BooleanProperty requireUppercase;
-	
+	private ListProperty passwordHistory;
 	private StringProperty password;
 	private StringProperty errorText;
 	
@@ -34,6 +35,7 @@ public class ViewModel {
 		
 		this.password = new SimpleStringProperty("");
 		this.errorText = new SimpleStringProperty("");
+		
 
         Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
@@ -86,6 +88,10 @@ public class ViewModel {
 	public StringProperty getErrorText() {
 		return this.errorText;
 	}
+	
+	public ListProperty getPasswordHistory() {
+		return this.passwordHistory;
+	}
 
 	/** Generates a password using the minimum length, require digit, require lower case, and require upper case property values.
 	 * 
@@ -118,6 +124,6 @@ public class ViewModel {
     	String password = this.generator.generatePassword();
     	
     	this.password.setValue(password);
+    	 this.passwordHistory.add(password);
     }
-
 }
