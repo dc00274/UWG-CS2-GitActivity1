@@ -6,8 +6,10 @@ import edu.westga.cs1302.password_generator.model.PasswordGenerator;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 
 /** Manages utilizing the model and makes properties available to bind the UI elements.
  * 
@@ -19,7 +21,7 @@ public class ViewModel {
 	private BooleanProperty requireDigits;
 	private BooleanProperty requireLowercase;
 	private BooleanProperty requireUppercase;
-	private ListProperty passwordHistory;
+	private ListProperty<String> passwordList;
 	private StringProperty password;
 	private StringProperty errorText;
 	
@@ -35,7 +37,7 @@ public class ViewModel {
 		
 		this.password = new SimpleStringProperty("");
 		this.errorText = new SimpleStringProperty("");
-		
+		this.passwordList = new SimpleListProperty<>(FXCollections.observableArrayList());
 
         Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
@@ -89,8 +91,13 @@ public class ViewModel {
 		return this.errorText;
 	}
 	
-	public ListProperty getPasswordHistory() {
-		return this.passwordHistory;
+	/**
+	 * Gets the password history.
+	 *
+	 * @return the password history
+	 */
+	public ListProperty<String> getPasswordList() {
+		return this.passwordList;
 	}
 
 	/** Generates a password using the minimum length, require digit, require lower case, and require upper case property values.
@@ -124,6 +131,6 @@ public class ViewModel {
     	String password = this.generator.generatePassword();
     	
     	this.password.setValue(password);
-    	 this.passwordHistory.add(password);
+    	this.passwordList.add(password);
     }
 }

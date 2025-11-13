@@ -20,19 +20,20 @@ public class MainWindow {
     @FXML private CheckBox mustIncludeLowerCaseLetters;
     @FXML private CheckBox mustIncludeUpperCaseLetters;
     @FXML private TextField minimumLength;
-    @FXML private ListView output;
+    @FXML private ListView<String> outputList;
     @FXML private Label errorTextLabel;
     @FXML private Button generatePasswordButton;
     
     private ViewModel vm;
+	
     
-    @FXML
+	@FXML
     void initialize() {
-    	this.minimumLength.textProperty().addListener((observable, oldValue, newValue) ->{
-    		if(!newValue.matches("^\\d*$")) {
+    	this.minimumLength.textProperty().addListener((observable, oldValue, newValue) -> {
+    		if (!newValue.matches("^\\d*$")) {
     			this.minimumLength.setText(oldValue);
     			this.vm.getErrorText().setValue("Minimum length must be numeric");
-    		}else {
+    		} else {
     				this.vm.getErrorText().setValue("");
     			}
     	});
@@ -42,13 +43,14 @@ public class MainWindow {
     	this.vm.getRequireUppercase().bind(this.mustIncludeUpperCaseLetters.selectedProperty());
     	this.minimumLength.setText(this.vm.getMinimumLength().getValue());
     	this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
-    	this.output.itemsProperty().bind(this.vm.getPasswordHistory());
-    	this.output.textProperty().bind(this.vm.getPassword());
+    	this.outputList.itemsProperty().bind(this.vm.getPasswordList());
     	this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
-    	
+    	String password = this.vm.getPassword().getValue();
+    	this.outputList.getItems().add(password);
     	this.generatePasswordButton.setOnAction(
     			(event) -> { 
     				this.vm.generatePassword();
+    	
     			} 
     	);
     }
