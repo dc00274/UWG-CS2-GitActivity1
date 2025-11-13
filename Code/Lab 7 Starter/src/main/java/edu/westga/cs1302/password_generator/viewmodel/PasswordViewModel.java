@@ -1,5 +1,7 @@
 package edu.westga.cs1302.password_generator.viewmodel;
 
+import java.util.function.BooleanSupplier;
+
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -96,4 +98,5 @@ public class PasswordViewModel {
     public StringProperty generatedPasswordProperty() {
         return this.generatedPassword;
     }
+
 }

@@ -1,11 +1,8 @@
 package edu.westga.cs1302.password_generator.view;
 
-import java.util.Random;
-
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
 import edu.westga.cs1302.password_generator.viewmodel.PasswordViewModel;
 import javafx.beans.binding.Bindings;
-import javafx.beans.value.WritableBooleanValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,23 +30,35 @@ public class MainWindow {
 
     @FXML
     void generatePassword(ActionEvent event) {
-    	WritableBooleanValue generatedPassword;
-		try {
-    	this.generator.setMustHaveAtLeastOneDigit(this.mustIncludeDigits.isSelected());
-    	this.generator.setMustHaveAtLeastOneLowerCaseLetter(this.mustIncludeLowerCaseLetters.isSelected());
-    	this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.mustIncludeUpperCaseLetters.isSelected());
-    	
-    	Boolean password = this.generator.generatePassword();
-    	
-    	generatedPassword.set(password);
-    	
-    	this.output.setText(password);
-    	 catch (IllegalArgumentException e) {
-    	        generatedPassword.set("Error: " + e.getMessage());
-    	    }
-    }
+    	 int minimumLength = -1;
 
-    @FXML
+    	    try {
+    	        minimumLength = Integer.parseInt(this.minimumLength.getText());
+    	    } catch (NumberFormatException numberError) {
+    	        Alert alert = new Alert(AlertType.ERROR);
+    	        alert.setContentText("Invalid Minimum Length: must be a positive integer, but was " + this.minimumLength.getText());
+    	        alert.show();
+    	        return;
+    	    }
+
+    	    try {
+    	        this.generator.setMinimumLength(minimumLength);
+    	    } catch (IllegalArgumentException invalidLengthError) {
+    	        Alert alert = new Alert(AlertType.ERROR);
+    	        alert.setContentText("Invalid Minimum Length: " + invalidLengthError.getMessage());
+    	        alert.show();
+    	        return;
+    	    }
+    	    
+    	    this.generator.setMustHaveAtLeastOneDigit(this.mustIncludeDigits.isSelected());
+    	    this.generator.setMustHaveAtLeastOneLowerCaseLetter(this.mustIncludeLowerCaseLetters.isSelected());
+    	    this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.mustIncludeUpperCaseLetters.isSelected());
+
+    	    String password = this.generator.generatePassword();
+    	    this.output.setText(password);
+    	}
+
+	@FXML
     void initialize() {
         assert this.mustIncludeDigits != null : "fx:id=\"mustIncludeDigits\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert this.mustIncludeLowerCaseLetters != null : "fx:id=\"mustIncludeLowerCaseLetters\" was not injected: check your FXML file 'MainWindow.fxml'.";
@@ -58,10 +67,10 @@ public class MainWindow {
         assert this.output != null : "fx:id=\"output\" was not injected: check your FXML file 'MainWindow.fxml'.";
          
         this.viewModel = new PasswordViewModel();
-        this.mustIncludeDigits.selectedProperty().bindBidirectional(viewModel.mustIncludeDigitsProperty());
-        this.mustIncludeLowerCaseLetters.selectedProperty().bindBidirectional(viewModel.mustIncludeLowerCaseLettersProperty());
-        this.mustIncludeUpperCaseLetters.selectedProperty().bindBidirectional(viewModel.mustIncludeUpperCaseLettersProperty());
-        Bindings.bindBidirectional(minimumLength.textProperty(),viewModel.minimumLengthProperty(),new FormatStringConverter(null));
-        output.textProperty().bind(viewModel.generatedPasswordProperty());
+        this.mustIncludeDigits.selectedProperty().bindBidirectional(this.viewModel.mustIncludeDigitsProperty());
+        this.mustIncludeLowerCaseLetters.selectedProperty().bindBidirectional(this.viewModel.mustIncludeLowerCaseLettersProperty());
+        this.mustIncludeUpperCaseLetters.selectedProperty().bindBidirectional(this.viewModel.mustIncludeUpperCaseLettersProperty());
+        Bindings.bindBidirectional(this.minimumLength.textProperty(), this.viewModel.minimumLengthProperty(), new FormatStringConverter(null));
+        this.output.textProperty().bind(this.viewModel.generatedPasswordProperty());
     }
 }
