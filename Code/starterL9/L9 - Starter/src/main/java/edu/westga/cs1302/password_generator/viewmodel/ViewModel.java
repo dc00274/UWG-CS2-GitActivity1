@@ -22,7 +22,7 @@ public class ViewModel {
 	private BooleanProperty requireDigits;
 	private BooleanProperty requireLowercase;
 	private BooleanProperty requireUppercase;
-	
+	private BooleanProperty validPassord;
 	private ListProperty<String> passwordHistory;
 	private StringProperty errorText;
 	
@@ -35,12 +35,16 @@ public class ViewModel {
 		this.requireDigits = new SimpleBooleanProperty(false);
 		this.requireLowercase = new SimpleBooleanProperty(false);
 		this.requireUppercase = new SimpleBooleanProperty(false);
-		
+		this.validPassord = new SimpleBooleanProperty(false);
 		this.passwordHistory = new SimpleListProperty<String>(FXCollections.observableArrayList(new ArrayList<String>()));
 		this.errorText = new SimpleStringProperty("");
 
         Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
+        this.minimumLength.addListener((obs, oldValue, newValue) -> { 
+        	validateLength();
+        	
+        });
 	}
 
 	/** Return the minimum length property
@@ -90,6 +94,11 @@ public class ViewModel {
 	public StringProperty getErrorText() {
 		return this.errorText;
 	}
+	
+	
+	public BooleanProperty getvalidPassword() {
+		return this.validPassord;
+	}
 
 	/** Generates a password using the minimum length, require digit, require lower case, and require upper case property values.
 	 * 
@@ -122,5 +131,11 @@ public class ViewModel {
     	
     	this.passwordHistory.add(password);
     }
+	
+	private void validateLength() {
+		String value = this.minimumLength.get();
+		boolean valid = value.matches("\\d+") && Integer.parseInt(value) >=1;
+		this.validPassord.set(valid);
+	}
 
 }
