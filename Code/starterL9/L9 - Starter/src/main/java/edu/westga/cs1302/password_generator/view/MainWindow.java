@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import edu.westga.cs1302.password_generator.viewmodel.ViewModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -36,12 +37,14 @@ public class MainWindow {
     private ViewModel vm;
     
     @FXML
-    private void letSave() {
+    private void onSave(ActionEvent event) {
     	FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Password save");
+    	fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text File", ".* txt"));
     	File file = fileChooser.showOpenDialog(null);
-    	fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("text Files", ".txt"));
-    	
+    	if (file != null) {
+    		return;
+    	}
     	
     	try (FileWriter writer = new FileWriter(file)) {
             for (String entry : this.vm.getPasswordHistory()) {
@@ -52,18 +55,17 @@ public class MainWindow {
         }
     }
     
-    
-    @FXML
-    public void  aboutPage() {
+     @FXML
+    private void  onAbout(ActionEvent event) {
     	Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    	alert.setTitle("Createing a Password generator");
-    	alert.setContentText("Dillan Clayton");
+    	alert.setTitle("Creating a Password generator");
+    	alert.setContentText("Author: Dillan Clayton");
     	alert.showAndWait();
     }
     
     @FXML
-    private void closePage() {
-    	((Node)(this.errorTextLabel)).getScene().getWindow().hide();
+    private void onClose(ActionEvent event) {
+    	((Node) this.generatePasswordButton).getScene().getWindow().hide();
     }
     
     @FXML
