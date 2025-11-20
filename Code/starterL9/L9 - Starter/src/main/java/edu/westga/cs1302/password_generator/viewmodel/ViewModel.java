@@ -95,7 +95,11 @@ public class ViewModel {
 		return this.errorText;
 	}
 	
-	
+	/**
+	 * Valid password property.
+	 *
+	 * @return the boolean property
+	 */
 	public BooleanProperty validPasswordProperty() {
 		return this.validPassword;
 	}
@@ -134,7 +138,7 @@ public class ViewModel {
 	
 	private void validateLength() {
 		String value = this.minimumLength.get();
-		boolean valid = value.matches("\\d+") && Integer.parseInt(value) >=1;
+		boolean valid = value.matches("\\d+") && Integer.parseInt(value) >= 1;
 		this.validPassword.set(valid);
 	}
 

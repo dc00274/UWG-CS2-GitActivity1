@@ -80,9 +80,8 @@ public class MainWindow {
     	
     	generatePasswordButton.setDisable(true);
     	
-    	this.minimumLength.textProperty().addListener((observable, newValue, oldValue) -> {
-    		this.minLengthErrorText.setVisible(!newValue.matches("\\d+") || Integer.parseInt(newValue) == 0);
-    	});
+    	this.minLengthErrorText.visibleProperty().bind(this.vm.validPasswordProperty().not());
+    	this.generatePasswordButton.disableProperty().bind(this.vm.validPasswordProperty().not());
     	
     	this.generatePasswordButton.setOnAction(
     			(event) -> { 
