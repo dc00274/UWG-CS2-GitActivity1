@@ -26,8 +26,7 @@ public class MainWindow {
     
     private ViewModel vm;
 	
-    
-	@FXML
+    @FXML
     void initialize() {
     	this.minimumLength.textProperty().addListener((observable, oldValue, newValue) -> {
     		if (!newValue.matches("^\\d*$")) {
