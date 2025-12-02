@@ -42,7 +42,7 @@ public class ViewModel {
         Random randomNumberGenerator = new Random();
         this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
         this.minimumLength.addListener((obs, oldValue, newValue) -> { 
-        	validateLength();
+        	this.validateLength();
         	
         });
 	}
@@ -96,7 +96,7 @@ public class ViewModel {
 	}
 	
 	/**
-	 * Valid password property.
+	 * Return the Valid password property.
 	 *
 	 * @return the boolean property
 	 */
