@@ -93,10 +93,27 @@ public class MainWindowViewModel {
 	 * @throws IllegalArgumentException if either name or phone number are invalid (see Contact class)
 	 */
 	public void addContact() throws IllegalArgumentException {
-		Contact contact =new Contact(this.name.get(), this.phoneNumber.get());
+		String newName = this.name.get();
+		String newPhone = this.phoneNumber.get();
+		if (!Contact.checkName(newName)) {
+			throw new IllegalArgumentException("Name is invalid");
+		}
+		if (!Contact.checkPhoneNumber(newPhone)) {
+			throw new IllegalArgumentException("Phone number is invalid");
+		}
+		if (this.nameMap.containsKey(newName)) {
+			throw new IllegalArgumentException("Name is already taken");
+		}
+		if (this.phoneNumberMap.containsKey(newPhone)) {
+			throw new IllegalArgumentException("Phone number is already taken");
+		}
+		
+		Contact contact = new Contact(newName, newPhone);
 		this.contacts.add(contact);
-		this.phoneNumberMap.put(contact.getPhoneNumber(), contact);
 		this.nameMap.put(contact.getName(), contact);
+		this.phoneNumberMap.put(contact.getName(), contact);
+		
+		
 	}
 	
 	/** Finds a contact with name or phone number matches provide search criteria
