@@ -111,9 +111,7 @@ public class MainWindowViewModel {
 		Contact contact = new Contact(newName, newPhone);
 		this.contacts.add(contact);
 		this.nameMap.put(contact.getName(), contact);
-		this.phoneNumberMap.put(contact.getName(), contact);
-		
-		
+		this.phoneNumberMap.put(contact.getPhoneNumber(), contact);
 	}
 	
 	/** Finds a contact with name or phone number matches provide search criteria

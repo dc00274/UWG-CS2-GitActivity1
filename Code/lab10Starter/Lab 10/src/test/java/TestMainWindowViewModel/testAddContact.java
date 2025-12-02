@@ -20,23 +20,26 @@ class testAddContact {
 	}
 	 @Test
 	    void tesInvalidName() {
+		    vm = new MainWindowViewModel();
 	        vm.getName().set("4627"); 
 	        vm.getPhoneNumber().set("777-7777");
 	        Exception ex = assertThrows(IllegalArgumentException.class, () -> 
 	           vm.addContact());
-	        assertEquals("Name is not valid", ex.getMessage());
+	        assertEquals("Name is invalid", ex.getMessage());
 	    }
 	 @Test
 	  void  testInvalidPhoneNumber() {
-		 vm.getName().set("Mike"); 
+		    vm = new MainWindowViewModel();
+		    vm.getName().set("Mike"); 
 	        vm.getPhoneNumber().set("chicken-man");
 	        Exception ex = assertThrows(IllegalArgumentException.class, () -> 
 	           vm.addContact());
-	        assertEquals("PhoneNumber is not valid", ex.getMessage());
+	        assertEquals("Phone number is invalid", ex.getMessage());
 	 }
 	 @Test
 	 void testDuplicateName() {
-		 vm.getName().set("Timmy");
+		    vm = new MainWindowViewModel();
+		    vm.getName().set("Timmy");
 	        vm.getPhoneNumber().set("123-1234");
 	        vm.addContact();
             vm.getName().set("Timmy"); 
@@ -47,13 +50,13 @@ class testAddContact {
 	 }
 	 @Test
 	 void testDuplicatePhoneNumber() {
-		 vm.getName().set("Timmy");
+		    vm = new MainWindowViewModel();
+		    vm.getName().set("Timmy");
 	        vm.getPhoneNumber().set("123-1234");
 	        vm.addContact();
             vm.getName().set("Johnny"); 
 	        vm.getPhoneNumber().set("123-1234");
-            Exception ex = assertThrows(IllegalArgumentException.class, () -> 
-                  vm.addContact());
-	        assertEquals("Name is already taken", ex.getMessage());
+            Exception ex = assertThrows(IllegalArgumentException.class, () -> vm.addContact());
+	        assertEquals("Phone number is already taken", ex.getMessage());
 	 }
 }

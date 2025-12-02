@@ -11,15 +11,17 @@ class testFindContact {
 	
 	@Test
 	void testFindContactByName() {
+		vm = new MainWindowViewModel();
 		vm.getName().set("Anne");
 		vm.getPhoneNumber().set("123-1234");
 		vm.addContact();
 		vm.getSearchCriteria().set("Anne");
-		assertEquals("Anne,  123-1234", vm.findContact());
+		assertEquals("Anne, 123-1234", vm.findContact());
 	}
 	
 	@Test
 	void testFindContactByPhoneNumber() {
+		vm = new MainWindowViewModel();
 		vm.getName().set("Zach");
 		vm.getPhoneNumber().set("222-2222");
 		vm.addContact();
@@ -28,15 +30,15 @@ class testFindContact {
 	}
     @Test
     void  testContactFoundNoReturn() {
+    	vm = new MainWindowViewModel();
 		vm.getSearchCriteria().set("123-1234");
-		assertEquals("No return", vm.findContact());
+		assertEquals("No contact found.", vm.findContact());
 	}
     
 	@Test
 	void  testContactNotFound() {
-		vm.getSearchCriteria().set("nothing");
-		assertThrows(IllegalArgumentException.class, () -> 
-		 vm.findContact());
+		vm = new MainWindowViewModel();
+		assertThrows(IllegalArgumentException.class, () -> vm.findContact());
 	}
 	
 	
