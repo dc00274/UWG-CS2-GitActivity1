@@ -13,7 +13,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 
-/** View model for the MainWindow view
+/**
+ * View model for the MainWindow view
  * 
  * @author CS 1302
  * @version Fall 2025
@@ -25,8 +26,9 @@ public class MainWindowViewModel {
 	private ListProperty<Contact> contacts;
 	private Map<String, Contact> phoneNumberMap;
 	private Map<String, Contact> nameMap;
-	
-	/** Initialize the MainWindowViewModel
+
+	/**
+	 * Initialize the MainWindowViewModel
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -40,8 +42,9 @@ public class MainWindowViewModel {
 		this.nameMap = new HashMap<String, Contact>();
 		this.phoneNumberMap = new HashMap<String, Contact>();
 	}
-	
-	/** Return the name property used when adding a contact
+
+	/**
+	 * Return the name property used when adding a contact
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -51,8 +54,9 @@ public class MainWindowViewModel {
 	public StringProperty getName() {
 		return this.name;
 	}
-	
-	/** Return the phone number property used when adding a contact
+
+	/**
+	 * Return the phone number property used when adding a contact
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -62,8 +66,9 @@ public class MainWindowViewModel {
 	public StringProperty getPhoneNumber() {
 		return this.phoneNumber;
 	}
-	
-	/** Return the search criteria property used when finding a contact
+
+	/**
+	 * Return the search criteria property used when finding a contact
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -73,24 +78,29 @@ public class MainWindowViewModel {
 	public StringProperty getSearchCriteria() {
 		return this.searchCriteria;
 	}
-	
-	/** Return the list property containing all contacts added to the system
+
+	/**
+	 * Return the list property containing all contacts added to the system
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
 	 * @return the list property containing all contacts added to the system
 	 */
+	@SuppressWarnings("rawtypes")
 	public ListProperty getContacts() {
 		return this.contacts;
 	}
-	
-	/** Adds a new contact with name and phone number set by the appropriate property
+
+	/**
+	 * Adds a new contact with name and phone number set by the appropriate property
 	 * 
 	 * @precondition none
-	 * @postcondition a new contact with name and phone number provided has been added
+	 * @postcondition a new contact with name and phone number provided has been
+	 *                added
 	 * 
-	 * @throws IllegalArgumentException if either name or phone number are invalid (see Contact class)
+	 * @throws IllegalArgumentException if either name or phone number are invalid
+	 *                                  (see Contact class)
 	 */
 	public void addContact() throws IllegalArgumentException {
 		String newName = this.name.get();
@@ -107,17 +117,19 @@ public class MainWindowViewModel {
 		if (this.phoneNumberMap.containsKey(newPhone)) {
 			throw new IllegalArgumentException("Phone number is already taken");
 		}
-		
+
 		Contact contact = new Contact(newName, newPhone);
 		this.contacts.add(contact);
 		this.nameMap.put(contact.getName(), contact);
 		this.phoneNumberMap.put(contact.getPhoneNumber(), contact);
 	}
-	
-	/** Finds a contact with name or phone number matches provide search criteria
+
+	/**
+	 * Finds a contact with name or phone number matches provide search criteria
 	 * 
 	 * @precondition none
-	 * @postcondition getResultContact().get() is set to the appropriate contact (if contact found) OR null (if no contact found)
+	 * @postcondition getResultContact().get() is set to the appropriate contact (if
+	 *                contact found) OR null (if no contact found)
 	 * 
 	 * @return A string representation of the contact found.
 	 */
@@ -139,5 +151,5 @@ public class MainWindowViewModel {
 		}
 		return "No contact found.";
 	}
-	
+
 }
