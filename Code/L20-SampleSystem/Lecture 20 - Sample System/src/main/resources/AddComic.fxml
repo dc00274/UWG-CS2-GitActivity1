@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+   <children>
+      <AnchorPane fx:id="guiPane2" minHeight="100.0" minWidth="100.0" prefHeight="239.0" prefWidth="303.0">
+         <children>
+            <TextField layoutX="77.0" layoutY="37.0" />
+            <TextField layoutX="77.0" layoutY="84.0" />
+            <Button layoutX="51.0" layoutY="159.0" mnemonicParsing="false" onAction="#addComic" text="Add" />
+            <Button layoutX="175.0" layoutY="159.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -13,65 +13,155 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CollectionViewModel.
+ *
+ * @author Dillan
+ * @version 2025
+ */
 public class CollectionViewModel {
+	
+	/** The comics in selected collection. */
 	private final ObservableList<Comic> comicsInSelectedCollection = FXCollections.observableArrayList();
+    
+    /** The selected comic. */
     private final ObjectProperty<Comic> selectedComic = new SimpleObjectProperty<>(null);
-    private final ObjectProperty<Collection> selectedCollection = new SimpleObjectProperty<>(null);
-	 private final StringProperty comicTitle = new SimpleStringProperty(" ");
-	 private final IntegerProperty issueNumber = new SimpleIntegerProperty(0);
+    
+    /** The selected collection. */
+    private final ObjectProperty<CollectionItem> selectedCollection = new SimpleObjectProperty<>(null);
 	 
-	 public ObservableList<Comic> getComicsInSelectedCollection() {
-	        return comicsInSelectedCollection;
+ 	/** The comic title. */
+ 	private final StringProperty comicTitle = new SimpleStringProperty(" ");
+	 
+ 	/** The issue number. */
+ 	private final IntegerProperty issueNumber = new SimpleIntegerProperty(0);
+	 
+ 	/** The collections. */
+ 	private final ObservableList<CollectionItem> collections = FXCollections.observableArrayList();
+	 
+	 /**
+ 	 * Gets the comics in selected collection.
+ 	 *
+ 	 * @return the comics in selected collection
+ 	 */
+ 	public ObservableList<Comic> getComicsInSelectedCollection() {
+	        return this.comicsInSelectedCollection;
 	    }
 
-	    public ObjectProperty<Comic> selectedComicProperty() {
-	        return selectedComic;
+	    /**
+    	 * Selected comic property.
+    	 *
+    	 * @return the object property
+    	 */
+    	public ObjectProperty<Comic> selectedComicProperty() {
+	        return this.selectedComic;
 	    }
 
-	    public ObjectProperty<Collection> selectedCollectionProperty() {
-	        return selectedCollection;
-	    }
-	    public StringProperty comicTitleProperty() {
-	    	return  comicTitle;
-	    }
-	    
-	    public IntegerProperty issueNumberProperty() {
-	    	return issueNumber;
+	    /**
+    	 * Selected collection property.
+    	 *
+    	 * @return the object property
+    	 */
+    	public ObjectProperty<CollectionItem> selectedCollectionProperty() {
+	        return this.selectedCollection;
 	    }
 	    
-	    public boolean addCollection() {
-	        if(selectedCollection.get() == null) {
+    	/**
+    	 * Comic title property.
+    	 *
+    	 * @return the string property
+    	 */
+    	public StringProperty comicTitleProperty() {
+	    	return  this.comicTitle;
+	    }
+	    
+	    /**
+    	 * Issue number property.
+    	 *
+    	 * @return the integer property
+    	 */
+    	public IntegerProperty issueNumberProperty() {
+	    	return this.issueNumber;
+	    }
+	    
+	    /**
+    	 * Gets the collections.
+    	 *
+    	 * @return the collections
+    	 */
+    	public ObservableList<CollectionItem> getCollections() {
+	        return this.collections;
+	    }
+	    
+	    /**
+    	 * Adds the collection.
+    	 *
+    	 * @return true, if successful
+    	 */
+    	public boolean addCollection() {
+	        if(this.selectedCollection.get() == null) {
 	        	return false;
 	        }
 
-	        String title = comicTitle.get();
-	        int comicIssueNumber = issueNumber.get();
-	        if (title.isEmpty() || issueNumber <= 0) {
+	        String title = this.comicTitle.get();
+	        int comicIssueNumber = this.issueNumber.get();
+	        
+	        if (title.isEmpty() || comicIssueNumber <= 0) {
 	            return false;
 	        }
 
-	        Comic newComic = new Comic(title, issueNumber);
-	        selectedCollection.get().addComic(newComic);
-	        selectedCollection.setAll(selectedCollection.get().getComics());
-            comicTitle.set(" ");
-            issueNumber.set(0);
+	        Comic newComic = new Comic(title, comicIssueNumber);
+	        this.selectedCollection.get().addComic(newComic);
+	        this.comicsInSelectedCollection.setAll(this.selectedCollection.get().getComics());
+            this.comicTitle.set(" ");
+            this.issueNumber.set(0);
 	        return true;
 	    }
 	    
-	    public boolean removeSelectedComic() {
-	        if (selectedCollection.get() == null || selectedComic.get() == null) {
+	    /**
+    	 * Removes the selected comic.
+    	 *
+    	 * @return true, if successful
+    	 */
+    	public boolean removeSelectedComic() {
+	        if (this.selectedCollection.get() == null || this.selectedComic.get() == null) {
 	            return false;
 	        }
 
-	        selectedCollection.get().removeComic(selectedComic.get());
-	        comicsInSelectedCollection.setAll(selectedCollection.get().getComics());
-	        selectedComic.set(null);
+	        this.selectedCollection.get().removeComic(this.selectedComic.get());
+	        this.comicsInSelectedCollection.setAll(this.selectedCollection.get().getComics());
+	        this.selectedComic.set(null);
 
 	        return true;
 	    }
 	    
-	    public void setSelectedCollection(Collection collection) {
-	        selectedCollection.set(collection);
-	        comicsInSelectedCollection.setAll(collection.getComics());
+	    /**
+    	 * Sets the selected collection.
+    	 *
+    	 * @param collection the new selected collection
+    	 */
+    	public void setSelectedCollection(CollectionItem collection) {
+	        this.selectedCollection.set(collection);
+	        this.comicsInSelectedCollection.setAll(collection.getComics());
 	    }
+	    
+	    /**
+    	 * Removes the collection.
+    	 *
+    	 * @param collection the collection
+    	 */
+    	public void removeCollection(CollectionItem collection) {
+	        this.collections.remove(collection);
+	    }
+	    
+	    /**
+    	 * Adds the collection.
+    	 *
+    	 * @param collection the collection
+    	 */
+    	public void addCollection(CollectionItem collection) {
+	        this.collections.add(collection);
+	    }
+	    
 }

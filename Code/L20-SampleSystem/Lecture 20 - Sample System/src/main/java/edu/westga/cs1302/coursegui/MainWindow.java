@@ -1,5 +1,7 @@
 package edu.westga.cs1302.coursegui;
 
+import java.util.Collection;
+import javafx.util.converter.NumberStringConverter;
 import edu.westga.cs1302.coursegui.model.CollectionItem;
 import edu.westga.cs1302.coursegui.model.Comic;
 import edu.westga.cs1302.coursegui.viewmodel.CollectionViewModel;
@@ -11,6 +13,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
+/**
+ * The Class MainWindow.
+ * @version 2025
+ * @author Dillan
+ */
 public class MainWindow {
 	    @FXML private TextField collectionName;
 	    @FXML private TextField issueField;
@@ -25,34 +32,52 @@ public class MainWindow {
 	
 	 private final CollectionViewModel vm = new CollectionViewModel();
 	 
-	 @FXML
+	 /**
+ 	 * Initialize.
+ 	 */
+ 	@FXML
 	    public void initialize() {
-	        collectionName.textProperty().bindBidirectional(vm.comicTitleProperty());
-	        issueField.textProperty().bindBidirectional(vm.issueNumberProperty(), new NumberStringConverter());
+	        this.collectionName.textProperty().bindBidirectional(this.vm.comicTitleProperty());
+	        this.issueField.textProperty().bindBidirectional(this.vm.issueNumberProperty(), new NumberStringConverter());
 	        
-	        addComicButton.disableProperty().bind(Bindings.or(vm.comicTitleProperty().isEmpty(), vm.issueNumberProperty().isEqualTo(0)));
-	        removeComicButton.disableProperty().bind(vm.selectedComicProperty().isNull());
-            
-	        addComicButton.setOnAction(e -> launchAddComicWindow());
-	        removeComicButton.setOnAction(e -> removeComicFromCollection());
+	        this.addComicButton.disableProperty().bind(Bindings.or(this.vm.comicTitleProperty().isEmpty(), vm.issueNumberProperty().isEqualTo(0)));
+	        this.removeComicButton.disableProperty().bind(this.vm.selectedComicProperty().isNull());
+	        this.removeCollection.disableProperty().bind(this.vm.selectedCollectionProperty().isNull());
+	        this.addCollection.setOnAction(e -> this.addNewCollection());
+	        this.removeCollection.setOnAction(e -> this.removeSelectedCollection());
+	        this.addComicButton.setOnAction(e -> this.launchAddComicWindow());
+	        this.removeComicButton.setOnAction(e -> this.removeComicFromCollection());
 	        
-	        collectionListView.setItems(vm.getCollections());
-	        collectionListView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+	        this.collectionListView.setItems(this.vm.getCollections());
+	        this.collectionListView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 	            if (newSelection != null) {
-	                vm.setSelectedCollection(newSelection);
-	                comicListView.setItems(vm.getComicsInSelectedCollection());
+	                this.vm.setSelectedCollection(newSelection);
+	                this.comicListView.setItems(this.vm.getComicsInSelectedCollection());
 	            }
 	        });
 	 }
 	 
+ 	private void addNewCollection() {
+	        String collectionName = "New Collection"; 
+	        CollectionItem newCollection = new CollectionItem(collectionName);
+	        this.vm.addCollection(newCollection);
+	    }
+	 
+	    private void removeSelectedCollection() {
+	        CollectionItem selectedCollection = this.vm.selectedCollectionProperty().get();
+	        if (selectedCollection != null) {
+	            this.vm.removeCollection(selectedCollection);
+	        }
+	    }
+	    
 	 private void removeComicFromCollection() {
-	        if (!vm.removeSelectedComic()) {
-	            showError("Failed to remove comic.");
+	        if (!this.vm.removeSelectedComic()) {
+	            this.showError("Failed to remove comic.");
 	        }
 	    }
 	 
 	 private void launchAddComicWindow() {
-	        AddComic newWindow = new AddComic();
+	        AddComic newWindow = new AddComic(this.vm.selectedCollectionProperty().get());
 	        newWindow.showWindow();
 	    }
 	 
