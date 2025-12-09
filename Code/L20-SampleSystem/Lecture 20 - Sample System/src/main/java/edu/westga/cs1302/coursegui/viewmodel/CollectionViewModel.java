@@ -14,21 +14,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class CollectionViewModel {
-	private final StringProperty collectionName = new SimpleStringProperty("");
-	 private final ObservableList<CollectionItem> collections = FXCollections.observableArrayList();
-	 private final ObjectProperty<CollectionItem> selectedCollection = new SimpleObjectProperty<>(null);
+	private final ObservableList<Comic> comicsInSelectedCollection = FXCollections.observableArrayList();
+    private final ObjectProperty<Comic> selectedComic = new SimpleObjectProperty<>(null);
+    private final ObjectProperty<Collection> selectedCollection = new SimpleObjectProperty<>(null);
 	 private final StringProperty comicTitle = new SimpleStringProperty(" ");
 	 private final IntegerProperty issueNumber = new SimpleIntegerProperty(0);
 	 
-	 public StringProperty newCollectionNameProperty() {
-	        return collectionName;
+	 public ObservableList<Comic> getComicsInSelectedCollection() {
+	        return comicsInSelectedCollection;
 	    }
 
-	    public ObservableList<CollectionItem> getCollections() {
-	        return collections;
+	    public ObjectProperty<Comic> selectedComicProperty() {
+	        return selectedComic;
 	    }
 
-	    public ObjectProperty<CollectionItem> selectedCollectionProperty() {
+	    public ObjectProperty<Collection> selectedCollectionProperty() {
 	        return selectedCollection;
 	    }
 	    public StringProperty comicTitleProperty() {
@@ -52,14 +52,14 @@ public class CollectionViewModel {
 
 	        Comic newComic = new Comic(title, issueNumber);
 	        selectedCollection.get().addComic(newComic);
-	        comicsInSelectedCollection.setAll(selectedCollection.get().getComics());
+	        selectedCollection.setAll(selectedCollection.get().getComics());
             comicTitle.set(" ");
             issueNumber.set(0);
 	        return true;
 	    }
 	    
-	    public boolean removeSelectedCollection() {
-	    	if (selectedCollection.get() == null || selectedComic.get() == null) {
+	    public boolean removeSelectedComic() {
+	        if (selectedCollection.get() == null || selectedComic.get() == null) {
 	            return false;
 	        }
 
@@ -74,5 +74,4 @@ public class CollectionViewModel {
 	        selectedCollection.set(collection);
 	        comicsInSelectedCollection.setAll(collection.getComics());
 	    }
-	    
 }
