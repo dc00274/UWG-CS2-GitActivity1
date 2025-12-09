@@ -6,13 +6,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="guiPane" minHeight="100.0" minWidth="100.0" prefHeight="445.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.coursegui.view.CourseGuiCodeBehind">
+<AnchorPane fx:id="guiPane" minHeight="100.0" minWidth="100.0" prefHeight="549.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.coursegui.view.CourseGuiCodeBehind">
    <children>
       <Label fx:id="idFormatLabel" layoutX="86.0" layoutY="67.0" prefHeight="21.0" prefWidth="157.0" text="Required ID: XXX-XX-XXXX" textFill="RED" visible="false" />
       <Label fx:id="gpaFormatLabel" layoutX="86.0" layoutY="167.0" prefHeight="21.0" prefWidth="157.0" text="Required GPA: 0.00-4.00" textFill="RED" visible="false" />
       <TextField fx:id="collectionName" layoutX="213.0" layoutY="54.0" />
       <Button layoutX="86.0" layoutY="55.0" mnemonicParsing="false" onAction="#addCollection" text="Button" />
       <ListView fx:id="collectionListView" layoutX="196.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="86.0" layoutY="354.0" mnemonicParsing="false" onAction="#removeCollection" text="Button" />
+      <Button layoutX="86.0" layoutY="106.0" mnemonicParsing="false" onAction="#removeCollection" text="Button" />
+      <ListView fx:id="comicListView" layoutX="196.0" layoutY="317.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="86.0" layoutY="317.0" mnemonicParsing="false" onAction="#addComic" text="Button" />
    </children>
 </AnchorPane>
