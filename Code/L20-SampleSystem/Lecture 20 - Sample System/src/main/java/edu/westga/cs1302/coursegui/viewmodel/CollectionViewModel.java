@@ -163,5 +163,15 @@ public class CollectionViewModel {
     	public void addCollection(CollectionItem collection) {
 	        this.collections.add(collection);
 	    }
-	    
+
+
+		public boolean addComic() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public boolean addComic2() {
+			// TODO Auto-generated method stub
+			return true;
+		}
 }
